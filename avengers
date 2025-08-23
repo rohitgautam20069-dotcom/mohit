@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <a href="mk.HTML">Open mk.HTML</a>
+    <a href="mk.HTML" target="_blank">Open mk.HTML in New Tab</a>
+
+    <title>Avengers Website</title>
+
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Link to External JavaScript -->
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Avengers Fan Website</h1>
+        <p>This website is dedicated to all Avengers fans. Here you'll find pictures, videos, and more!</p>
+    </header>
+
+    <!-- Image Gallery -->
+    <section>
+        <h2>Gallery</h2>
+        <img src="https://i.pinimg.com/736x/01/57/b7/0157b74996acf427575d088f9a98e4c5.jpg" alt="Avenger Image 1" width="121">
+        <img src="/image.jfif" alt="Avenger Image 2" width="121">
+    </section>
+
+    <!-- Formatting Example -->
+    <section>
+        <h2>Text Formatting</h2>
+        <p><b>This is bold</b></p>
+        <p><i>This is italic</i></p>
+        <p><u>This is underlined</u></p>
+        <p><big>This is big</big></p>
+        <p><small>This is small</small></p>
+        <p>CO<sub>2</sub></p>
+        <p>a<sup>2</sup> + bx + c</p>
+    </section>
+
+    <!-- Preformatted Code -->
+    <section>
+        <h2>Python Code Sample</h2>
+        <pre>
+import turtle, time, random
+win = turtle.Screen()
+win.bgcolor("black")
+win.setup(400, 400)
+win.tracer(0)
+
+snake = [turtle.Turtle(shape="square") for _ in range(3)]
+for s in snake:
+    pass
+        </pre>
+    </section>
+
+    <!-- YouTube Channel Link -->
+    <section>
+        <h2>Visit Our YouTube Channel</h2>
+        <a href="https://www.youtube.com/@Avengersphotostudio1234?app=desktop" target="_blank">
+            <img src="image.jfif" alt="Avengers YouTube" width="123">
+        </a>
+    </section>
+
+    <!-- Info Boxes -->
+    <div class="info-boxes">
+        <div class="info">
+            <h2>My name is</h2>
+            <p>HTML is easy to learn and helps build powerful websites.</p>
+        </div>
+        <div class="info">
+            <h2>My youtube channel name is </h2>
+            <p>Avengers photo studio1234</p>
+        </div>
+    </div>
+
+    <!-- Lists -->
+    <section>
+        <h2>Navigation</h2>
+        <ul>
+            <li>Home</li>
+            <li>Gallery</li>
+            <li>Contact</li>
+        </ul>
+    </section>
+
+    <!-- Table -->
+    <section>
+        <h2>Top PUBG Players</h2>
+        <table>
+            <caption>Max Scores by Players</caption>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Score</th>
+                    <th>Game</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mohit Kumar</td>
+                    <td>123</td>
+                    <td>PUBG</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Form -->
+    <section>
+        <h2>Travel Form</h2>
+        <form id="travelForm">
+            <input type="text" placeholder="Delhi" name="username"><br><br>
+
+            <label><input type="radio" name="section" value="A"> Section A</label><br>
+            <label><input type="radio" name="section" value="B"> Section B</label><br>
+            <label><input type="radio" name="section" value="C"> Section C</label><br><br>
+
+            <label><input type="checkbox" name="canteenCard" id="foodcanteen"> Want food canteen card</label><br><br>
+
+            <textarea name="explain" rows="5" placeholder="Why do you want to join?"></textarea><br><br>
+
+            <label for="car">Select your car:</label>
+            <select name="car" id="car">
+                <option value="no-car">Select your car</option>
+                <option value="omni">Omni</option>
+                <option value="omni2">Omni2</option>
+                <option value="i10">i10</option>
+            </select><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <!-- Video + iFrame -->
+    <section>
+        <h2>Media</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Jcglls5Mymk?si=D5K74VH4Efp8RsyG"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe><br><br>
+
+        <iframe src="https://www.marvel.com" frameborder="0" width="829" height="315"></iframe><br><br>
+
+        <video src="video.html" controls width="525"></video>
+    </section>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1, h2 {
+    color: #b20000;
+    text-align: center;
+}
+
+img {
+    margin: 10px;
+    border-radius: 8px;
+}
+
+section {
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.info {
+    background: #e8e8e8;
+    padding: 15px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid #aaa;
+    padding: 10px;
+    text-align: center;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+form input[type="submit"] {
+    background-color: #b20000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: #8a0000;
+}
+</style>
+<script>
+// Simple alert when form is submitted
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("travelForm");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // prevent actual form submission
+        alert("Thank you! Your travel form has been submitted.");
+        form.reset(); // clear form
+    });
+});
+</script>
+</body>
+</html>
+
