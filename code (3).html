@@ -10,7 +10,14 @@
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
-            animation: fadeIn 1s ease-in-out; /* Fade in the entire body */
+            animation: fadeIn 1s ease-in-out;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 16px; /* Base font for mobile readability */
+        }
+        
+        body.dark-mode {
+            background-color: #333;
+            color: #f9f9f9;
         }
         
         @keyframes fadeIn {
@@ -19,15 +26,16 @@
         }
         
         header {
-            background-image: url('https://i.pinimg.com/1200x/6a/92/9d/6a929da7307d94b314ad7d60f8e43ac2.jpg'); /* Added background image */
-            background-size: cover; /* Covers the entire header */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents tiling */
+            background-image: url('https://i.pinimg.com/1200x/6a/92/9d/6a929da7307d94b314ad7d60f8e43ac2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             color: white;
             text-align: center;
-            padding: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow for readability */
-            animation: slideDown 1.5s ease-out; /* Slide down animation for header */
+            padding: 15px; /* Reduced for mobile */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: slideDown 1.5s ease-out;
+            position: relative;
         }
         
         @keyframes slideDown {
@@ -35,16 +43,34 @@
             to { transform: translateY(0); opacity: 1; }
         }
         
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 8px 12px; /* Larger for touch */
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
         .channel-info {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 15px; /* Reduced */
             background-color: white;
-            margin: 20px;
+            margin: 10px; /* Tighter margins */
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            animation: fadeInUp 1s ease-out 0.5s both; /* Fade in from bottom with delay */
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        body.dark-mode .channel-info {
+            background-color: #444;
+            color: #f9f9f9;
         }
         
         @keyframes fadeInUp {
@@ -53,24 +79,24 @@
         }
         
         .channel-info img {
-            width: 150px;
-            height: 150px;
+            width: 120px; /* Smaller for mobile */
+            height: 120px;
             border-radius: 50%;
-            margin-right: 20px;
+            margin-right: 15px;
             object-fit: cover;
-            transition: transform 0.3s ease; /* Smooth hover effect */
+            transition: transform 0.3s ease;
         }
         
-        .channel-info img:hover {
-            transform: scale(1.1); /* Scale up on hover */
+        .channel-info img:active { /* Touch-friendly instead of hover */
+            transform: scale(1.05);
         }
         
         .videos {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            animation: fadeInUp 1s ease-out 1s both; /* Delayed fade in for videos section */
+            gap: 15px; /* Reduced gap */
+            padding: 15px;
+            animation: fadeInUp 1s ease-out 1s both;
         }
         
         .video-card {
@@ -79,44 +105,55 @@
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transitions */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .video-card:hover {
-            transform: translateY(-10px); /* Lift up on hover */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Enhanced shadow on hover */
+        body.dark-mode .video-card {
+            background-color: #444;
+        }
+        
+        .video-card:active { /* Touch interaction */
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
         .video-card img {
             width: 100%;
-            height: 200px;
+            height: 180px; /* Shorter for mobile */
             object-fit: cover;
-            transition: opacity 0.3s ease, transform 0.3s ease; /* Added transform transition for scaling */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            loading: lazy; /* Lazy load for performance */
         }
         
-        .video-card:hover img {
-            opacity: 0.8; /* Slight fade on hover */
-            transform: scale(1.1); /* Scale up on hover, same as channel logo */
+        .video-card:active img {
+            opacity: 0.8;
+            transform: scale(1.05);
         }
         
         .video-card h3 {
-            padding: 10px;
+            padding: 8px; /* Reduced */
             margin: 0;
+            font-size: 14px; /* Smaller font */
         }
         
         .ai-bot {
             background-color: white;
-            margin: 20px;
-            padding: 20px;
+            margin: 10px; /* Tighter */
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             text-align: center;
-            animation: fadeInUp 1s ease-out 1.5s both; /* Delayed fade in for AI bot section */
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+        
+        body.dark-mode .ai-bot {
+            background-color: #444;
         }
         
         .ai-bot h2 {
             margin-top: 0;
-            animation: bounceIn 1s ease-out 2s both; /* Bounce in animation for title */
+            animation: bounceIn 1s ease-out 2s both;
+            font-size: 18px; /* Adjusted */
         }
         
         @keyframes bounceIn {
@@ -128,112 +165,172 @@
         
         .ai-bot input {
             width: 70%;
-            padding: 10px;
+            padding: 12px; /* Larger for touch */
             margin-right: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            transition: border-color 0.3s ease; /* Smooth border color change */
+            transition: border-color 0.3s ease;
+            font-size: 16px; /* Prevents zoom on iOS */
         }
         
         .ai-bot input:focus {
-            border-color: #007bff; /* Highlight on focus */
+            border-color: #007bff;
         }
         
         .ai-bot button {
-            padding: 10px 20px;
+            padding: 12px 20px; /* Larger */
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 16px;
         }
         
-        .ai-bot button:hover {
+        .ai-bot button:active {
             background-color: #0056b3;
-            transform: scale(1.05); /* Slight scale on hover */
+            transform: scale(1.05);
         }
         
         .ai-response {
-            margin-top: 20px;
+            margin-top: 15px;
             padding: 10px;
             background-color: #f1f1f1;
             border-radius: 4px;
             min-height: 50px;
-            animation: fadeIn 0.5s ease-out; /* Fade in response when updated */
+            animation: fadeIn 0.5s ease-out;
+            font-size: 14px;
+        }
+        
+        body.dark-mode .ai-response {
+            background-color: #555;
+            color: #f9f9f9;
         }
         
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 8px; /* Reduced */
             background-color: #333;
             color: white;
-            animation: fadeInUp 1s ease-out 2s both; /* Delayed fade in for footer */
+            animation: fadeInUp 1s ease-out 2s both;
+            font-size: 12px;
+        }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 768px) {
+            .channel-info {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+            .channel-info img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .videos {
+                grid-template-columns: 1fr; /* Single column */
+                gap: 10px;
+                padding: 10px;
+            }
+            .video-card h3 {
+                font-size: 16px;
+            }
+            .ai-bot input {
+                width: 100%; /* Full width */
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .ai-bot button {
+                width: 100%; /* Full width button */
+            }
+            header {
+                padding: 10px;
+            }
+            .dark-mode-toggle {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
         <h1>Avengers Photostudio1234</h1>
         <p>Welcome to epic photo edits and Marvel-inspired creations!</p>
     </header>
 
-    <section class="channel-info">
-        <img src="https://i.pinimg.com/1200x/44/a7/2e/44a72ef96d0cb141b5a25519344ba4e0.jpg" alt="Iron Man Channel Logo">
-        <div>
-            <h2>Avengers Photostudio1234</h2>
-            <p>1.2K subscribers • 10 videos</p>
-            <p>Explore photo studio tips, Avengers edits, and more!</p>
-            <button onclick="alert('Subscribe to our real YouTube channel!')">Subscribe</button>
-        </div>
-    </section>
+    <main>
+        <section class="channel-info" aria-labelledby="channel-title">
+            <img src="https://i.pinimg.com/1200x/44/a7/2e/44a72ef96d0cb141b5a25519344ba4e0.jpg" alt="Iron Man themed channel logo for Avengers Photostudio1234">
+            <div>
+                <h2 id="channel-title">Avengers Photostudio1234</h2>
+                <p>1.2K subscribers • 10 videos</p>
+                <p>Explore photo studio tips, Avengers edits, and more!</p>
+                <button onclick="alert('Subscribe to our real YouTube channel!')">Subscribe</button>
+            </div>
+        </section>
 
-    <section class="videos" id="videos-container">
-        <!-- Videos will be added here dynamically by JS -->
-    </section>
+        <section class="videos" id="videos-container" aria-label="Video gallery">
+            <!-- Videos will be added here dynamically by JS -->
+        </section>
 
-    <section class="ai-bot">
-        <h2>Ask the AI Bot</h2>
-        <p>Have questions about the channel, videos, or Marvel? Ask me!</p>
-        <input type="text" id="question-input" placeholder="Type your question here...">
-        <button onclick="askBot()">Ask</button>
-        <div class="ai-response" id="response-output">Hi! I'm the AI bot for Avengers Photostudio1234. Ask me anything!</div>
-    </section>
+        <section class="ai-bot" aria-labelledby="ai-bot-title">
+            <h2 id="ai-bot-title">Ask the AI Bot</h2>
+            <p>Have questions about the channel, videos, or Marvel? Ask me!</p>
+            <input type="text" id="question-input" placeholder="Type your question here..." aria-label="Question input">
+            <button onclick="askBot()">Ask</button>
+            <div class="ai-response" id="response-output" aria-live="polite">Hi! I'm the AI bot for Avengers Photostudio1234. Ask me anything!</div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2023 Avengers Photostudio1234. All rights reserved.</p>
+        <p>&copy; <span id="current-year"></span> Avengers Photostudio1234. All rights reserved.</p>
     </footer>
 
     <script>
+        // Toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Set dynamic year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
         // Function to play video (opens in new tab)
         function playVideo(url) {
             window.open(url, '_blank');
         }
 
-        // Array of thumbnails for each video (index 0 for video 1, index 1 for video 2, etc.)
+        // Array of thumbnails for each video
         const thumbnails = [
-            'https://i.pinimg.com/1200x/5a/ea/f7/5aeaf715687689aae092014e255d09ab.jpg', // Video 1
-            'https://i.pinimg.com/736x/6a/98/3f/6a983f50f2d5d625580ec6c9752752c0.jpg', // Video 2
-            'https://i.pinimg.com/736x/85/95/af/8595afa339113b05876291a114f644a2.jpg', // Video 3
-            'https://i.pinimg.com/736x/a4/10/25/a41025d9215dd99120ca1fc3913aaa9a.jpg', // Video 4
-            'https://i.pinimg.com/1200x/4b/57/4a/4b574a282cf9b44cabf480c8672ce03a.jpg', // Video 5
-            'https://i.pinimg.com/1200x/e6/ad/ea/e6adea45e03df37bae619281c6dc044f.jpg', // Video 6
-            'https://i.pinimg.com/736x/a2/6a/f8/a26af84a1c61533cba474200ae9cd61f.jpg', // Video 7
-            'https://i.pinimg.com/736x/88/ad/76/88ad76377832640094cb56f9afa85339.jpg', // Video 8
-            'https://i.pinimg.com/1200x/87/06/76/870676cea6a3400c94187770a028c847.jpg', // Video 9
-            'https://i.pinimg.com/736x/52/ec/44/52ec44c30254d4feaa87a16381118c5c.jpg'  // Video 10
+            'https://i.pinimg.com/1200x/5a/ea/f7/5aeaf715687689aae092014e255d09ab.jpg',
+            'https://i.pinimg.com/736x/6a/98/3f/6a983f50f2d5d625580ec6c9752752c0.jpg',
+            'https://i.pinimg.com/736x/85/95/af/8595afa339113b05876291a114f644a2.jpg',
+            'https://i.pinimg.com/736x/a4/10/25/a41025d9215dd99120ca1fc3913aaa9a.jpg',
+            'https://i.pinimg.com/1200x/4b/57/4a/4b574a282cf9b44cabf480c8672ce03a.jpg',
+            'https://i.pinimg.com/1200x/e6/ad/ea/e6adea45e03df37bae619281c6dc044f.jpg',
+            'https://i.pinimg.com/736x/a2/6a/f8/a26af84a1c61533cba474200ae9cd61f.jpg',
+            'https://i.pinimg.com/736x/88/ad/76/88ad76377832640094cb56f9afa85339.jpg',
+            'https://i.pinimg.com/1200x/87/06/76/870676cea6a3400c94187770a028c847.jpg',
+            'https://i.pinimg.com/736x/52/ec/44/52ec44c30254d4feaa87a16381118c5c.jpg'
         ];
 
-        // Dynamically generate 10 video cards with unique thumbnails
+        // Fallback image if thumbnail fails
+        const fallbackImage = 'https://via.placeholder.com/300x200?text=Video+Thumbnail';
+
+        // Dynamically generate 10 video cards
         const videosContainer = document.getElementById('videos-container');
         for (let i = 1; i <= 10; i++) {
             const videoCard = document.createElement('div');
             videoCard.className = 'video-card';
-            videoCard.onclick = () => playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ'); // Replace with real links
+            videoCard.onclick = () => playVideo(`https://www.youtube.com/results?search_query=Avengers+Edit+Video+${i}`);
 
             const img = document.createElement('img');
-            img.src = thumbnails[i - 1]; // Use the corresponding thumbnail from the array
-            img.alt = `Video ${i} Thumbnail`;
+            img.src = thumbnails[i - 1];
+            img.alt = `Thumbnail for Avengers Edit Video ${i}`;
+            img.onerror = () => img.src = fallbackImage;
 
             const title = document.createElement('h3');
             title.textContent = `Avengers Edit Video ${i}`;
@@ -243,29 +340,35 @@
             videosContainer.appendChild(videoCard);
         }
 
-        // New function for AI bot to answer questions
+        // Enhanced AI bot
         function askBot() {
             const question = document.getElementById('question-input').value.toLowerCase().trim();
             const responseOutput = document.getElementById('response-output');
             
-            let response = "I'm sorry, I don't have an answer for that. Try asking about subscribers, videos, or Marvel!";
+            responseOutput.textContent = "Thinking...";
+            setTimeout(() => {
+                let response = "I'm sorry, I don't have an answer for that. Try asking about subscribers, videos, or Marvel!";
+                
+                if (question.includes('subscriber') || question.includes('sub') || question.includes('how many')) {
+                    response = "The channel has 1.2K subscribers. Join the Avengers fan club!";
+                } else if (question.includes('video') || question.includes('how many')) {
+                    response = "The channel has 10 epic videos. Check them out!";
+                } else if (question.includes('avengers') || question.includes('marvel') || question.includes('edit')) {
+                    response = "We specialize in Avengers edits and Marvel-inspired photo creations! Assemble your creativity!";
+                } else if (question.includes('subscribe') || question.includes('join')) {
+                    response = "Click the subscribe button to join our community and never miss an edit!";
+                } else if (question.includes('hello') || question.includes('hi') || question.includes('hey')) {
+                    response = "Hello! How can I help you today? Ready to dive into Marvel magic?";
+                } else if (question.includes('what is') && question.includes('channel')) {
+                    response = "Avengers Photostudio1234 is a YouTube channel focused on photo edits and Marvel-inspired creations. It's like the Infinity Gauntlet for your screen!";
+                } else if (question.includes('dark mode') || question.includes('toggle')) {
+                    response = "Use the toggle in the header to switch to dark mode – perfect for late-night Marvel binges!";
+                }
+                
+                responseOutput.textContent = response;
+            }, 500);
             
-            if (question.includes('subscriber') || question.includes('how many subscribers')) {
-                response = "The channel has 1.2K subscribers.";
-            } else if (question.includes('video') || question.includes('how many videos')) {
-                response = "The channel has 10 videos.";
-            } else if (question.includes('avengers') || question.includes('marvel')) {
-                response = "We specialize in Avengers edits and Marvel-inspired photo creations!";
-            } else if (question.includes('subscribe')) {
-                response = "Click the subscribe button to join our community!";
-            } else if (question.includes('hello') || question.includes('hi')) {
-                response = "Hello! How can I help you today?";
-            } else if (question.includes('what is') && question.includes('channel')) {
-                response = "Avengers Photostudio1234 is a YouTube channel focused on photo edits and Marvel-inspired creations.";
-            }
-            
-            responseOutput.textContent = response;
-            document.getElementById('question-input').value = ''; // Clear input after asking
+            document.getElementById('question-input').value = '';
         }
     </script>
 </body>
